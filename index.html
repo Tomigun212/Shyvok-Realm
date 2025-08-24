@@ -441,7 +441,6 @@ body {
 </section>
 
 
-<!-- AOS Script -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init({
@@ -483,7 +482,6 @@ function renderEvent(index) {
     return;
   }
 
-  // Animation fade out, puis fade in
   card.classList.add("fade-out");
 
   setTimeout(() => {
@@ -503,7 +501,6 @@ function renderEvent(index) {
     card.classList.remove("fade-out");
     card.classList.add("fade-in");
 
-    // Enlever la classe fade-in après l'animation pour pouvoir rejouer à chaque changement
     setTimeout(() => card.classList.remove("fade-in"), 500);
 
   }, 500);
@@ -531,14 +528,14 @@ function filterEvents(type) {
     const diffDays = (eventDate - now) / (1000 * 60 * 60 * 24);
     if (type === "soon") return diffDays >= 0 && diffDays <= 5;
     if (type === "past") return eventDate < now;
-    return true; // "all"
+    return true; 
   });
 
   currentIndex = 0;
   renderEvent(currentIndex);
 }
 
-// Init au chargement
+
 window.addEventListener("DOMContentLoaded", () => {
   filterEvents("all");
 });
@@ -550,4 +547,3 @@ window.addEventListener("DOMContentLoaded", () => {
 </body>
 </html>
 
-</html>
